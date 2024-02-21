@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Statistics</h1>
+<p>Total members joined: {{ members_count }}</p>        
+<p>Total threads created: {{ threads_count }}</p>      
+<p>Total posts posted: {{ posts_count }}</p> 
+<p>Most active member: {{ most_active_member }}</p>            
+{% endblock content %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FORUM{% endblock title %}</title> 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+<body>
+    <header class="header-image">           		
+        <ul class="nav">                                               
+            <li><a href="{% url "index" %}">Statistics</a></li>        <!-- Linkas i index.html 'statistics pavadinimas webe' -->
+            <li><a href="{% url "thread_list" %}">Threads</a></li>   
+            <li><a href="{% url "post_list" %}">Posts</a></li>          
+        </ul>
+    </header>
+    <section class="messages">
+        {% for message in messages %}
+            <p class="message message-{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </section>
+    <main>{% block content %}{% endblock content %}</main>
+</body>
+</html>

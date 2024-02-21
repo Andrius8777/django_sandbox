@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} list{% endblock title %}
+{% block content %}
+<h1>Created threads:</h1>
+<ul>
+{% for thread in thread_list %}
+    <li><a href="{% url "thread_detail" thread.pk %}">{{ thread.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock content %}
