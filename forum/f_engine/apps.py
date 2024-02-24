@@ -5,4 +5,4 @@ from django.utils.translation import gettext_lazy as _
 class FEngineConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'f_engine'
-    verbose_name = 'f_engine'
+    verbose_name = 'f engine'

@@ -21,7 +21,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('f_engine.urls')),
+    path('u_engine/', include('u_engine.urls')),               #http://127.0.0.1:8000/u_engine/signup/ main url link
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),    #http://127.0.0.1:8000/accounts/login/  main url link
 ]
 
 urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))  
