@@ -1,5 +1,5 @@
 body {
-    background-color: #cccccc;   
+    background-color: #ffffff;   
     font-family: sans-serif;
     font-size: 16px;
     display: flex;            
@@ -9,16 +9,19 @@ body {
 }
 
 header {
-    background-color: #999999df;
+    background-color: #4709f1df;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 header .logo {
-    font-size: 24px;
-    font-weight: 700;
-    padding: 0.5rem;
+    font-size: 38px;
+    font-weight: 900;
+    padding: 0.7rem;
+    color: #ffffff;
+    font-family: Lucida Grande;
+
 }
 
 header ul.nav {
@@ -32,21 +35,20 @@ header ul.nav {
 }    
 
 header ul.nav li a, header ul.nav form button {
-    background-color: #aaaaaa;
+    background-color: #4709f1df;
     display: block;
-    margin: 0;
+    margin: 1;
     padding: 0.5rem;
-    border: 0;
-    border-bottom: 2px solid #004488;
+    border: 1;
     cursor: pointer;
-    color: #004488;
+    color: #fcfdfd;
     font-size: 100%;
     border-radius: 0.5rem;
 }
 
 header ul.nav li a:hover, header ul.nav form button:hover {
-    background-color: #b8b8b8;
-    border-bottom: 2px solid #0055cc;
+    background-color: #fffcfc;
+    border-bottom: 2px solid #f4f6f8;
     color: #0055cc;
     text-decoration: none;
 }
@@ -57,7 +59,9 @@ main {
 }
 
 footer {
-    background-color: #6666669f;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
 }
 
 a {
@@ -67,7 +71,7 @@ a {
 }
 
 a:hover {
-    color: #0055cc;
+    color: #f8f9fc;
     text-decoration: underline;
 }
 
@@ -94,18 +98,6 @@ main ul li {
 
 main ul li.list-table-header {
     padding-bottom: 0.5rem;
-}
-
-footer p {
-    color: #cccccc;
-}
-
-footer a {
-    color: #66aaff;
-}
-
-footer a:hover {
-    color: #77bbff;
 }
 
 div.messages {
@@ -141,10 +133,7 @@ div.messages {
 
 .spacer {
     flex-grow: 1;
-}
-header form select {
-    margin: 1rem;
-    font-size: 100%;
+
 }
 
 div.flower {
@@ -161,9 +150,6 @@ div.fog {
     border-radius: 1rem;
 }
 
-footer .icon {
-    max-height: 24px;
-}
 
 main form label {
     display: inline-block;
@@ -213,4 +199,18 @@ button:hover, .button:hover {
 
 div.tube {
     padding: 1rem;
+}
+
+.paypal-container {
+    position: fixed;
+    bottom: 0.5;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: auto;
+    max-width: 90%; /* Adjust the maximum width as needed */
+}
+
+.paypal-container form {
+    display: inline-block;
 }

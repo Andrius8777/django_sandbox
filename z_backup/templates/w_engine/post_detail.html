@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | {{ task }}{% endblock title %}
+{% block content %}
+
+<p>Posted by: {{ post.author }}</p>    
+<p>{{ task.content }}</p>  
+<p>Solution: {{ post.content }}</p>  
+<p>Updated at: {{ post.created_at }}</p>  
+{% endblock content %}

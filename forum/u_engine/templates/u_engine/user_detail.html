@@ -1,9 +1,10 @@
 {% extends "base.html" %}{% load i18n %}
 {% block title %}{{ object }} {% trans "at" %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>{% trans "user"|title %} {{ object.username }}</h1>
-<p>{{ object.first_name }} {{ object.last_name }}</p>
+<h1>{% trans "personal info:"|title %}</h1>
 {% if object == request.user %}
+    <p>{% trans "first name"|capfirst %}: {{ object.first_name }}</p>
+    <p>{% trans "last name"|capfirst %}: {{ object.last_name }}</p>
     <p>{% trans "e-mail"|capfirst %}: {{ object.email }}</p>
 {% endif %}
 {% endblock content %}

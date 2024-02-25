@@ -44,7 +44,7 @@ def user_update(request: HttpRequest) -> HttpResponse:
     else:
         form_user = forms.UserForm(instance=request.user)
         form_profile = forms.ProfileForm(instance=request.user.profile)
-    return render(request, 'user_profile/user_update.html', {
+    return render(request, 'u_engine/user_update.html', {
         'form_user': form_user,
         'form_profile': form_profile,
     })

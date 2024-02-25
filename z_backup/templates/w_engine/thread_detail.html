@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | Thread Detail{% endblock title %}
+{% block content %}
+
+<p>Topic: {{ task.title }}</p>   
+<p>Created at: {{ task.created_at }}</p>  
+
+<h1>Posts:</h1>
+<ul>
+  {% if sorted_posts %}
+    {% for post in sorted_posts %}
+      <li>
+        <strong>Author:</strong> {{ post.author.user.username }}<br>
+        <strong>Content:</strong> {{ post.content }}<br>
+        <strong>Created at:</strong> {{ post.created_at }}<br>
+      </li>
+    {% endfor %}
+  {% else %}
+    <li>Sorry, no post yet published.</li>
+  {% endif %}
+</ul>
+
+{% endblock content %}
