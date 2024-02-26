@@ -1,23 +1,7 @@
-{% extends "base.html" %}
-{% block title %}{{ block.super }} | Thread Detail{% endblock title %}
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{{ thread.title }} | {{ block.super }}{% endblock title %}
 {% block content %}
-
-<p>Topic: {{ task.title }}</p>   
-<p>Created at: {{ task.created_at }}</p>  
-
-<h1>Posts:</h1>
-<ul>
-  {% if sorted_posts %}
-    {% for post in sorted_posts %}
-      <li>
-        <strong>Author:</strong> {{ post.author.user.username }}<br>
-        <strong>Content:</strong> {{ post.content }}<br>
-        <strong>Created at:</strong> {{ post.created_at }}<br>
-      </li>
-    {% endfor %}
-  {% else %}
-    <li>Sorry, no post yet published.</li>
-  {% endif %}
-</ul>
-
+<h1>{{ thread.title }}</h1>
+<p>{% trans "owner" %}: <a href="{% url "user_detail" thread.creator.username %}">{{ thread.creator }}</a></p>
+<p>{% trans "threads" %}: {{ thread.post.count }}</p>
 {% endblock content %}

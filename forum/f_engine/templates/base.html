@@ -1,4 +1,5 @@
-<!DOCTYPE html>{% load static %}
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,26 +23,32 @@
                 <li><a href="{% url "signup" %}">Sign up</a></li>
             {% endif %}
         </ul>
-    </header>          		
-        <ul class="nav">                                               
-            <li><a href="{% url "index" %}">Statistics</a></li>        <!-- Linkas i index.html 'statistics pavadinimas webe' -->
-            <li><a href="{% url "thread_list" %}">Threads</a></li>   
-            <li><a href="{% url "post_list" %}">Posts</a></li>  
-        </ul>
-        {% for message in messages %}
-            <p class="message message-{{ message.tags }}">{{ message }}</p>
-        {% endfor %}
-    </section>
-    <main>{% block content %}{% endblock content %}</main>
+    </header> 
+
+    <main>
+        {% block content %}
+            <h1>Threads</h1>
+            <div class="grid-container">
+                {% for thread in thread_list %}
+                    <div class="thread-card">
+                        <a href="{% url 'thread_detail' thread.pk %}">{{ thread.title }}</a>
+                        <p>Creator: {{ thread.creator }}</p>
+                        <p>Date Created: {{ thread.created_at }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endblock content %} 
+    </main>
+
     <footer>
         <div class="paypal-container">
-        {% block footer %}{% endblock footer %}
-        <form action="https://www.paypal.com/donate" method="post" target="_top">
-        <input type="hidden" name="hosted_button_id" value="S54ERMB2XRUZ4" />
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-        <img alt="" border="0" src="https://www.paypal.com/en_LT/i/scr/pixel.gif" width="1" height="1" />
-        </form>
-        <div>
+            {% block footer %}{% endblock footer %}
+            <form action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="hosted_button_id" value="S54ERMB2XRUZ4" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_LT/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+        </div>
     </footer>
 </body>
 </html>

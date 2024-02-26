@@ -1,10 +1,12 @@
-{% extends "base.html" %}
-{% block title %}{{ block.super }} list{% endblock title %}
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{{ block.super }} {% trans "threads" %}{% endblock title %}
 {% block content %}
-<h1>Created threads:</h1>
+<h1>{% trans "threads"|capfirst %}</h1>
 <ul>
-{% for thread in thread_list %}
-    <li><a href="{% url "thread_detail" thread.pk %}">{{ thread.title }}</a></li>
+{% for thread in threads %}
+    <li>
+        <a href="{% url "thread_detail" thread.pk %}">{{ thread.title }}</a>
+    </li>
 {% endfor %}
 </ul>
 {% endblock content %}

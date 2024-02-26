@@ -1,7 +1,30 @@
 {% extends "base.html" %}
+
 {% block content %}
-<p>Total members joined: {{ members_count }}</p>        
-<p>Total threads created: {{ threads_count }}</p>      
-<p>Total posts posted: {{ posts_count }}</p> 
-<p>Most active member: {{ most_active_member }}</p>            
+  <h1>Threads</h1>
+
+  {% if request.user.is_authenticated %}
+    <a href="{% url 'create_thread' %}" class="create-thread-button">Create New Thread</a>
+  {% endif %}
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Creator</th>
+          <th>Date Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for thread in threads %}
+          <tr>
+            <td><a href="{% url 'thread_detail' thread.pk %}">{{ thread.title }}</a></td>
+            <td>{{ thread.creator }}</td>
+            <td>{{ thread.created_at }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock content %}
